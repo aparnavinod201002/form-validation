@@ -76,188 +76,182 @@ function Forms() {
   });
 
   return (
-    <>
-      <div style={{ marginTop: "50px" }} className="d-flex justify-content-center align-items-center ">
-        <div className="container w-25 bg-success align-items-center" style={{boxShadow:"2px 4px 6px 8px grey"}}>
-          <h2 className="mt-5 m-5" style={{ textAlign: "center" }}>Registration Form</h2>
-          <Form onSubmit={formik.handleSubmit} className="m-3">
+    <div className="d-flex justify-content-center align-items-center min-vh-100" style={{ marginTop: '50px' }}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-8 col-lg-6 p-4" style={{ boxShadow: "0 4px 8px black", backgroundColor: "lightblue" }}>
+            <h2 className="text-center my-4">Registration Form</h2>
+            <Form onSubmit={formik.handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Full Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter Full Name..."
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.fullName}
+                  isInvalid={formik.touched.fullName && !!formik.errors.fullName}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.fullName}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Full Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="fullName"
-                placeholder="Enter Full Name..."
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.fullName}
-                isInvalid={formik.touched.fullName && !!formik.errors.fullName}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.fullName}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter Your Email..."
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                  isInvalid={formik.touched.email && !!formik.errors.email}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.email}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                placeholder="Enter Your Email..."
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-                isInvalid={formik.touched.email && !!formik.errors.email}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.email}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="phoneNumber"
+                  placeholder="Enter Your Phone Number..."
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.phoneNumber}
+                  isInvalid={formik.touched.phoneNumber && !!formik.errors.phoneNumber}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.phoneNumber}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="text"
-                name="phoneNumber"
-                placeholder="Enter Your Phone Number..."
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.phoneNumber}
-                isInvalid={formik.touched.phoneNumber && !!formik.errors.phoneNumber}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.phoneNumber}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Date of Birth</Form.Label>
+                <Form.Control
+                  type="date"
+                  name="dateOfBirth"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.dateOfBirth}
+                  isInvalid={formik.touched.dateOfBirth && !!formik.errors.dateOfBirth}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.dateOfBirth}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Date of Birth</Form.Label>
-              <Form.Control
-                type="date"
-                name="dateOfBirth"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.dateOfBirth}
-                isInvalid={formik.touched.dateOfBirth && !!formik.errors.dateOfBirth}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.dateOfBirth}</Form.Control.Feedback>
-            </Form.Group>
+              <h5>Gender</h5>
+              <div className="mb-3">
+                <Form.Check 
+                  type="radio" 
+                  name="gender" 
+                  id="male" 
+                  value="male" 
+                  label="Male" 
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.gender && !!formik.errors.gender}
+                />
+                <Form.Check 
+                  type="radio" 
+                  name="gender" 
+                  id="female" 
+                  value="female" 
+                  label="Female" 
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.gender && !!formik.errors.gender}
+                />
+                <Form.Check 
+                  type="radio" 
+                  name="gender" 
+                  id="other" 
+                  value="other" 
+                  label="Other" 
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.gender && !!formik.errors.gender}
+                  feedback={formik.errors.gender}
+                />
+              </div>
 
-            <h5>Gender</h5>
-            <div className="form-check">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="gender"
-                id="male"
-                value="male"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              <label className="form-check-label" htmlFor="male">Male</label>
-            </div>
-            <div className="form-check">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="gender"
-                id="female"
-                value="female"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              <label className="form-check-label" htmlFor="female">Female</label>
-            </div>
-            <div className="form-check mb-3">
-              <input
-                type="radio"
-                className="form-check-input"
-                name="gender"
-                id="other"
-                value="other"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-              <label className="form-check-label" htmlFor="other">Other</label>
-              {formik.touched.gender && formik.errors.gender ? <div className="text-danger">{formik.errors.gender}</div> : null}
-            </div>
+              <Form.Group className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Enter Your Password..."
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  isInvalid={formik.touched.password && !!formik.errors.password}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.password}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Enter Your Password..."
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-                isInvalid={formik.touched.password && !!formik.errors.password}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.password}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password..."
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.confirmPassword}
+                  isInvalid={formik.touched.confirmPassword && !!formik.errors.confirmPassword}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.confirmPassword}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="confirmPassword"
-                placeholder="Enter Confirm Password..."
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.confirmPassword}
-                isInvalid={formik.touched.confirmPassword && !!formik.errors.confirmPassword}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.confirmPassword}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="address"
+                  rows={3}
+                  placeholder="Enter Your Address"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.address}
+                  isInvalid={formik.touched.address && !!formik.errors.address}
+                />
+                <Form.Control.Feedback type="invalid">{formik.errors.address}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Address</Form.Label>
-              <Form.Control
-                as="textarea"
-                name="address"
-                rows={3}
-                placeholder="Enter Your Address"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.address}
-                isInvalid={formik.touched.address && !!formik.errors.address}
-              />
-              <Form.Control.Feedback type="invalid">{formik.errors.address}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Country</Form.Label>
+                <Form.Select
+                  name="country"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.country}
+                  isInvalid={formik.touched.country && !!formik.errors.country}
+                >
+                  <option value="">Select Your Country...</option>
+                  <option value="us">U.S.A</option>
+                  <option value="ca">Canada</option>
+                  <option value="in">India</option>
+                </Form.Select>
+                <Form.Control.Feedback type="invalid">{formik.errors.country}</Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Country</Form.Label>
-              <Form.Select
-                name="country"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.country}
-                isInvalid={formik.touched.country && !!formik.errors.country}
-              >
-                <option value="">Select Your Country...</option>
-                <option value="us">U.S.A</option>
-                <option value="ca">Canada</option>
-                
-                <option value="in">India</option>
-                
-              </Form.Select>
-              <Form.Control.Feedback type="invalid">{formik.errors.country}</Form.Control.Feedback>
-            </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Check
+                  type="checkbox"
+                  name="acceptTerms"
+                  label="I accept the terms and conditions"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  isInvalid={formik.touched.acceptTerms && !!formik.errors.acceptTerms}
+                  feedback={formik.errors.acceptTerms}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Form.Check
-                type="checkbox"
-                name="acceptTerms"
-                label="I accept the terms and conditions"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                isInvalid={formik.touched.acceptTerms && !!formik.errors.acceptTerms}
-                feedback={formik.errors.acceptTerms}
-              />
-            </Form.Group>
-
-            <Button variant="primary" type="submit" className="w-100">
-              Register
-            </Button>
-
-          </Form>
+              <Button variant="primary" type="submit" className="w-100">
+                Register
+              </Button>
+            </Form>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
